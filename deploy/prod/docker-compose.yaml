@@ -25,6 +25,7 @@ services:
       # - ./conf/conf.d:/etc/nginx/conf.d
       # - ./conf/ssl:/etc/nginx/ssl
       - ../../static:/var/www/app/static
+      - ../../front:/var/www/app/front
       # - /opt/letsencrypt:/etc/letsencrypt
     networks:
       - postgres
