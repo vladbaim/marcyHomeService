@@ -1,0 +1,45 @@
+---
+app:
+  is-debug: true
+  url: https://f507-94-181-82-227.ngrok-free.app
+  id: marcy-home
+  name: Marcy Home Service
+  admin:
+    email: admin@taod.ru
+    password: "123"
+
+telegram:
+  token: 6893519594:AAFEDsXtAmrdU1D7HJiCiKX_3VkqsIZNotA
+
+http:
+  ip: 0.0.0.0
+  port: 3001
+  cors:
+    debug: false
+    allowed-methods: ["GET", "POST", "PATCH", "PUT", "OPTIONS", "DELETE"]
+    allowed-origins:
+      - "*"
+    allow-credentials: true
+    allowed-headers:
+      - "Authorization"
+      - "Location"
+      - "Charset"
+      - "Access-Control-Allow-Origin"
+      - "Content-Type"
+      - "Origin"
+      - "Accept"
+      - "Content-Length"
+      - "Accept-Encoding"
+      - "X-CSRF-Token"
+    options-passthrough: true
+    exposed-headers:
+      - "Location"
+      - "Authorization"
+      - "Content-Disposition"
+
+postgresql:
+  host: localhost
+  port: "5432"
+  username: postgres
+  password: postgres
+  database: postgres
