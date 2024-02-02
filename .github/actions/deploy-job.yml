@@ -1,0 +1,26 @@
+name: Deploy Marcy Home Service
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  prepare-environment:
+    runs-on: self-hosted
+    steps:
+      - name: Stop and remove containers, networks
+        run: docker-compose down
+      - name: Remove old server image
+        run: docker rmi marcy-home-service
+      - name: Remove unused data
+        run: docker system prune -a -f
+  deploy:
+    runs-on: self-hosted
+    needs: prepare-environment
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: build server
+        run: cd server && make build && cd ..
+      - name: docker-compose
+        run: cd deploy/prod && docker-compose up -d
