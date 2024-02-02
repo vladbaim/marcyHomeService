@@ -9,9 +9,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Stop and remove containers, networks
-        run: docker-compose down
-      - name: Remove old server image
-        run: docker rmi marcy-home-service
+        run: cd deploy/prod && docker-compose down
       - name: Remove unused data
         run: docker system prune -a -f
   deploy:
