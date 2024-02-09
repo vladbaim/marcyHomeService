@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
       - name: build server
         run: cd server && make build && cd ..
-      - name: docker-compose down
-        run: cd deploy/prod && docker-compose down && cd ../../
-      - name: docker-compose up
-        run: cd deploy/prod && docker-compose up -d && cd ../../
+      - name: docker compose down
+        run: cd deploy/prod && docker compose down && cd ../../
+      - name: docker compose up
+        run: cd deploy/prod && docker compose up -d && cd ../../
