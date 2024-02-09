@@ -2,6 +2,7 @@ version: "3.9"
 services:
   marcy-home-server:
     image: marcy-home-server:latest
+    hostname: marcy-home-server
     environment:
       - PSQL_HOST="postgres"
       - APP_URL="https://marcyhome.ru"
@@ -49,6 +50,7 @@ services:
   
   postgres:
     container_name: postgres_container
+    hostname: postgres
     image: postgres:latest
     environment:
       POSTGRES_DB: "postgres"
