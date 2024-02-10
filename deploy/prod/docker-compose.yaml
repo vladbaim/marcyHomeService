@@ -6,7 +6,7 @@ services:
     environment:
       - PSQL_HOST=postgres
       - APP_URL=https://marcyhome.ru
-    restart: unless-stopped
+    restart: always
     ports:
       - 3001:3001
     networks:
@@ -71,7 +71,6 @@ services:
 
 volumes:
   postgres-data:
-  pgadmin-data:
 
 networks:
   postgres:
