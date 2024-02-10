@@ -38,7 +38,7 @@ services:
       - TZ=Europe/Moscow
       - LETSENCRYPT=true
       - LE_EMAIL=clearskyrus@gmail.com
-      - LE_FQDN=www.marcyhome.ru
+      - LE_FQDN=marcyhome.ru
     networks:
       - postgres
 
