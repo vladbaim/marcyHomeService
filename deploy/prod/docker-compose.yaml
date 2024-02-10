@@ -27,7 +27,7 @@ services:
 
     volumes:
       - /etc/nginx/ssl:/etc/nginx/ssl
-      - ./.nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./.nginx/nginx.conf:/etc/nginx/service.conf
       - ../../static:/var/www/app/static/:ro
       - ../../front:/var/www/app/front/:ro
     ports:
