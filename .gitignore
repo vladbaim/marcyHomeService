@@ -1,3 +1,4 @@
 logs
 ssl
 .DS_Store
+./deploy/prod/nginx/ssl
