@@ -4,8 +4,8 @@ services:
     image: marcy-home-server:latest
     hostname: marcy-home-server
     environment:
-      - PSQL_HOST="postgres"
-      - APP_URL="https://marcyhome.ru"
+      - PSQL_HOST=postgres
+      - APP_URL=https://marcyhome.ru
     restart: unless-stopped
     ports:
       - 3001:3001
@@ -43,7 +43,6 @@ services:
       - postgres
 
   postgres:
-    container_name: postgres_container
     hostname: postgres
     image: postgres:latest
     environment:

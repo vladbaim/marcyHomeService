@@ -17,7 +17,6 @@ services:
       # - /opt/letsencrypt:/etc/letsencrypt
   
   postgres:
-    container_name: postgres_container
     image: postgres:latest
     environment:
       POSTGRES_DB: "postgres"
