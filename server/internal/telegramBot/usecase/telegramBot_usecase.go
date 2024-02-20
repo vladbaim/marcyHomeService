@@ -26,6 +26,15 @@ func (t *telegramBotUsecase) SendChatMessage(ctx context.Context, chatId int64, 
 		return
 	}
 
-	sendedMessage, err = t.telegramBot.Send(tgbotapi.NewMessage(chatId, message+fmt.Sprintf("\nТемпература: %.1fC \n Влажность: %.1f%% \n Уровень CO2: %d", sensorData.Temperature, sensorData.Humidity, sensorData.CarbonDioxide)))
+	formattedTime := fmt.Sprintf("%d-%02d-%02dT%02d:%02d:%02d",
+		sensorData.CreatedAt.Year(), sensorData.CreatedAt.Month(), sensorData.CreatedAt.Day(),
+		sensorData.CreatedAt.Hour(), sensorData.CreatedAt.Minute(), sensorData.CreatedAt.Second())
+	sendedMessage, err = t.telegramBot.Send(
+		tgbotapi.NewMessage(
+			chatId,
+			message+
+				fmt.Sprintf("\nТемпература: %.1fC \n Влажность: %.1f%% \n Уровень CO2: %d", sensorData.Temperature, sensorData.Humidity, sensorData.CarbonDioxide)+
+				"\nВремя показателей: "+
+				formattedTime))
 	return
 }
